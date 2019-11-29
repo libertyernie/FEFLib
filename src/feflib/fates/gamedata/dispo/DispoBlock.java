@@ -229,6 +229,16 @@ public class DispoBlock {
     public void setItem(String item, int index) {
         this.items[index] = item;
     }
+    
+    public void addItem(String item) {
+    	for (int i = 0; i < this.items.length; i++) {
+    		if (this.items[i].equals("")) {
+    			this.items[i] = item;
+    			return;
+    		}
+    	}
+    	throw new RuntimeException("Cannot add item " + item + " - item inventory full");
+    }
 
     public String[] getSkills() {
         return skills;
